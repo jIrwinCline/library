@@ -57,4 +57,13 @@ describe '#Book' do
     end
   end
 
+  describe('.update') do
+    it ('updates the attributes of a book') do
+      book1 = Book.new({:title => "The Sign of Three", :id => nil})
+      book1.save()
+      book1.update("The Sign of Seven")
+      expect(book1.title).to(eq("The Sign of Seven"))
+    end
+  end
+
 end
