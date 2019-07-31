@@ -1,0 +1,15 @@
+<h1>Welcome to Someone's Library of Books that Someone Will Read</h1>
+
+<h2>What Would You like to view?</h2>
+
+<% if @books.any? %>
+  <ul>
+    <% @books.each do |book| %>
+    <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>There are currently no books in the library's database</p>
+  <% end %>
+
+  <a href="/books/new">Add a new book</a>

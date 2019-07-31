@@ -1,0 +1,15 @@
+<h1>Welcome to Someone's Library of Books that Someone Will Read</h1>
+
+<h2>What Would You like to view?</h2>
+
+<% if @authors.any? %>
+  <ul>
+    <% @authors.each do |author| %>
+    <li><a href="/authors/<%= author.id %>"><%= author.name %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>There are currently no author's in the library's database</p>
+  <% end %>
+
+  <a href="/authors/new">Add a new author</a>

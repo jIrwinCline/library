@@ -44,4 +44,8 @@ require 'pry'
       DB.exec("UPDATE authors SET name = '#{@name}' WHERE id = #{id};")
     end
 
+    def delete
+      DB.exec("DELETE FROM authors WHERE id = #{@id};")
+    end
+
   end
