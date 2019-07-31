@@ -28,4 +28,15 @@ require 'pry'
       @id = result.first().fetch("id").to_i
     end
 
+    def self.clear
+      DB.exec("DELETE FROM books *;")
+    end
+
+    def self.find(id)
+      book = DB.exec("SELECT * FROM books WHERE id = #{id};").first
+      title = book.fetch("title")
+      id = book.fetch("id").to_i
+      Book.new({:title => title, :id => id})
+    end
+
   end
