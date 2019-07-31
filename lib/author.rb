@@ -24,5 +24,19 @@ require 'pry'
       @id = result.first().fetch("id").to_i
     end
 
-    
+    def ==(author_to_compare)
+      self.name() == author_to_compare.name
+    end
+
+    def self.clear
+      DB.exec("DELETE FROM authors *;")
+    end
+
+    def self.find(id)
+      author = DB.exec("SELECT * FROM authors WHERE id = #{id};").first
+      name = author.fetch("name")
+      id = author.fetch("id").to_i
+      Author.new({:name => name, :id => id})
+    end
+
   end

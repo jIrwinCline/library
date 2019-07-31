@@ -24,4 +24,32 @@ describe '#Author' do
     end
   end
 
+  describe('#==') do
+    it('compares the attributes and declares two objects equal') do
+      author1 = Author.new({:name => 'Harry Stone', :id => nil})
+      author2 = Author.new({:name => 'Harry Stone', :id => nil})
+      expect(author1).to(eq(author2))
+    end
+  end
+  describe('.clear') do
+    it('clears all authors') do
+      author1 = Author.new({:name => 'Harry Stone', :id => nil})
+      author1.save()
+      author2 = Author.new({:name => 'Stony Harris', :id => nil})
+      author2.save()
+      Author.clear()
+      expect(Author.all()).to(eq([]))
+    end
+  end
+  describe('.find') do
+    it('finds author by id') do
+      author1 = Author.new({:name => 'Harry Stone', :id => nil})
+      author1.save()
+      author2 = Author.new({:name => 'Stony Harris', :id => nil})
+      author2.save()
+      expect(Author.find(author1.id)).to(eq(author1))
+    end
+  end
+
+
 end
