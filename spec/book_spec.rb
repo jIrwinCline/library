@@ -19,6 +19,7 @@ describe '#Book' do
     it("returns and empty array where there are no authors") do
       expect(Book.all).to(eq([]))
     end
+    
     it("saves objects in the database and returns an array of all books currently stored") do
       book1 = Book.new({:title => "The Sign of Three", :id => nil})
       book1.save()
