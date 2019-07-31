@@ -9,7 +9,7 @@ require 'pry'
     end
 
     def self.all
-      returned_authors = DB.exec("SELECT * FROM authors ORDER BY name")
+      returned_authors = DB.exec("SELECT * FROM authors ORDER BY name;")
       authors = []
       returned_authors.each() do |author|
         name = author.fetch("name")
@@ -37,6 +37,11 @@ require 'pry'
       name = author.fetch("name")
       id = author.fetch("id").to_i
       Author.new({:name => name, :id => id})
+    end
+
+    def update(name)
+      @name = name
+      DB.exec("UPDATE authors SET name = '#{@name}' WHERE id = #{id;};")
     end
 
   end

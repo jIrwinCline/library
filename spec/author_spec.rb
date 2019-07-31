@@ -50,6 +50,14 @@ describe '#Author' do
       expect(Author.find(author1.id)).to(eq(author1))
     end
   end
+  describe('.update') do
+    it('updates property of selected author') do
+      author1 = Author.new({:name => 'Harry Stone', :id => nil})
+      author1.save()
+      author1.update("Doug Stone")
+      expect(author1.name).to eq("Doug Stone")
+    end
+  end
 
 
 end
