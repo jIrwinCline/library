@@ -1,0 +1,25 @@
+<h1>Edit Account:</h1>
+<h3>Current Account Information:</h3>
+<h3>Account: <%= @patron.name %></h3>
+<h3>Phone: <%= @patron.phone %></h3>
+
+<form action="/patrons/<%= @patron.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="edit_patron_name">Edit Name</label>
+  <input type="text" name="edit_patron_name">
+
+  <label for="edit_patron_phone">Edit Phone Number</label>
+  <input type="text" name="edit_patron_phone">
+
+  <button type="submit" name="btn">Edit</button>
+</form>
+
+<form action="/patrons/<%= @patron.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete Account</button>
+</form>
+
+<br>
+<a href="/patrons">Cancel</a>

@@ -27,7 +27,7 @@ class Patron
   end
 
   def save
-    result = DB.exec("INSERT INTO patrons (name) VALUES ('#{@name}') RETURNING id;")
+    result = DB.exec("INSERT INTO patrons (name, phone) VALUES ('#{@name}', '#{@phone}') RETURNING id;")
     @id = result.first().fetch("id").to_i
   end
 
@@ -43,9 +43,13 @@ class Patron
     Patron.new({:name => name, :phone => phone, :id => id})
   end
 
-  def update(name)
-    @name = name
+  def update(name, phone)
     DB.exec("UPDATE patrons SET name = '#{name}' WHERE id = #{id};")
+    DB.exec("UPDATE patrons SET phone = '#{phone}' WHERE id = #{id};")
+  end
+
+  def delete
+    DB.exec("DELETE FROM patrons WHERE id = #{id}")
   end
 
 end#class

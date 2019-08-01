@@ -1,0 +1,24 @@
+GOES IN BOOK .ERB
+
+<!-- <% if @book.authors %>
+  <ul>
+    <% @book.authors.each do |author| %>
+    <li><a href="/books/<%= @book.id %>/authors/<%= authors.id %>"><%= author.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no Authors associated with this text.</p>
+<% end %> -->
+
+
+GOES INTO AUTHOR.ERB
+
+<!-- <% if @author.books %>
+  <ul>
+    <% @author.books.each do |book| %>
+    <li><a href="/authors/<%= @author.id %>/books/<%= books.id %>"><%= book.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no books in the library from this author.</p>
+<% end %> -->
